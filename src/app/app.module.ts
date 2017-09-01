@@ -16,6 +16,10 @@ import { BandsComponent } from './components/bands/bands.component';
 import { NewsComponent } from './components/news/news.component';
 import { EventsComponent } from './components/events/events.component';
 import { LocationsComponent } from './components/locations/locations.component';
+import { MasternewsComponent } from './components/masternews/masternews.component';
+import { MastereventsComponent } from './components/masterevents/masterevents.component';
+
+
 
 @NgModule({
   declarations: [
@@ -25,7 +29,9 @@ import { LocationsComponent } from './components/locations/locations.component';
     BandsComponent,
     NewsComponent,
     EventsComponent,
-    LocationsComponent
+    LocationsComponent,
+    MasternewsComponent,
+    MastereventsComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +39,7 @@ import { LocationsComponent } from './components/locations/locations.component';
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     NgPipesModule,
-    RoutingModule
+    RoutingModule,
     ],
   providers: [],
   bootstrap: [AppComponent]

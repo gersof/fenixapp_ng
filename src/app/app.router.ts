@@ -5,6 +5,8 @@ import { NewsComponent } from './components/news/news.component';
 import { EventsComponent } from './components/events/events.component';
 import { LocationsComponent } from './components/locations/locations.component';
 import { HomeComponent } from './components/home/home.component';
+import { MasternewsComponent } from './components/masternews/masternews.component';
+import { MastereventsComponent } from './components/masterevents/masterevents.component';
 
 
 const routes: Routes = [
@@ -20,6 +22,11 @@ const routes: Routes = [
     path: 'events', component: EventsComponent
   },{
     path: 'locations',component: LocationsComponent
+  }
+  ,{
+    path: 'masternews',component: MasternewsComponent
+  },{
+    path: 'masterevents',component: MastereventsComponent
   },
 ];
 
