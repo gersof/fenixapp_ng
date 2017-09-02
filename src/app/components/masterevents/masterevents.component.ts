@@ -14,9 +14,7 @@ export class MastereventsComponent implements OnInit {
   }
 
   ngOnInit() {
-   $('#datetimepicker').datetimepicker({
-    format: 'YYYY-MM-DD HH:mm', sideBySide: true
-});
+  
   }
 }
 

@@ -18,7 +18,7 @@ import { EventsComponent } from './components/events/events.component';
 import { LocationsComponent } from './components/locations/locations.component';
 import { MasternewsComponent } from './components/masternews/masternews.component';
 import { MastereventsComponent } from './components/masterevents/masterevents.component';
-
+import { SimpleTinyComponent } from "./common/editor";
 
 
 @NgModule({
@@ -31,7 +31,8 @@ import { MastereventsComponent } from './components/masterevents/masterevents.co
     EventsComponent,
     LocationsComponent,
     MasternewsComponent,
-    MastereventsComponent
+    MastereventsComponent,
+    SimpleTinyComponent
   ],
   imports: [
     BrowserModule,
@@ -40,6 +41,7 @@ import { MastereventsComponent } from './components/masterevents/masterevents.co
     AngularFireAuthModule,
     NgPipesModule,
     RoutingModule,
+    
     ],
   providers: [],
   bootstrap: [AppComponent]

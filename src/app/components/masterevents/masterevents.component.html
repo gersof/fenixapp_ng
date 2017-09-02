@@ -1,21 +1,35 @@
-
-
 <div class="row">
-  <div class="col-md-6">
-      <h1 class="text-center">Crear un evento</h1>
-      <div class="form-group row">
-          <label for="staticEmail" class="col-md-4 col-form-label"> Nombre del evento :</label>
-          <div class="col-md-8">
-            <input type="text" class="form-control" placeholder="Mi super evento.."/>
-          </div>
-        </div>
-        <div class="form-group row">
-            <label  class="col-md-4 col-form-label">Empieza:</label>
-            <div class="col-md-8">
-                <input type="text"  id="datetimepicker" >
-              </div>
-          </div>
+  <div class="col-md-9">
+    <h1 class="text-center">Crear un evento</h1>
+    <div class="form-group row">
+      <label for="staticEmail" class="col-md-4 col-form-label"> Nombre del evento :</label>
+      <div class="col-md-8">
+        <input type="text" class="form-control" placeholder="Mi super evento.." />
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-md-2 col-form-label">Empieza:</label>
+      <div class="col-md-4">
+        <input type="date" />
+      </div>
+      <label class="col-md-2 col-form-label">Termina:</label>
+      <div class="col-md-4">
+        <input type="date" />
+      </div>
+    </div>
+    <div class="form-group row">
+      <div class="col-md-5">
+        <img src="/assets/img/calendar.png" alt="">
+      </div>
+      <div class="col-md-7">
+          <simple-tiny
+          [elementId]="'my-editor-id'"
+          (onEditorKeyup)="keyupHandlerFunction($event)"
+          >
+        </simple-tiny>
+      </div>
+    </div>
   </div>
-  <div class="col-md-6">
-   </div>
+  <div class="col-md-3">
+  </div>
 </div>
