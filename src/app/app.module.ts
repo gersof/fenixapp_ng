@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
@@ -19,7 +20,7 @@ import { LocationsComponent } from './components/locations/locations.component';
 import { MasternewsComponent } from './components/masternews/masternews.component';
 import { MastereventsComponent } from './components/masterevents/masterevents.component';
 import { SimpleTinyComponent } from "./common/editor";
-
+import { EventsService } from "./services/events.service";
 
 @NgModule({
   declarations: [
@@ -41,9 +42,10 @@ import { SimpleTinyComponent } from "./common/editor";
     AngularFireAuthModule,
     NgPipesModule,
     RoutingModule,
+    FormsModule
     
     ],
-  providers: [],
+  providers: [EventsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

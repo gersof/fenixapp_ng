@@ -2,34 +2,67 @@
   <div class="col-md-9">
     <h1 class="text-center">Crear un evento</h1>
     <div class="form-group row">
-      <label for="staticEmail" class="col-md-4 col-form-label"> Nombre del evento :</label>
+      <label for="staticEmail" class="col-md-3 col-form-label"> Nombre del evento :</label>
       <div class="col-md-8">
-        <input type="text" class="form-control" placeholder="Mi super evento.." />
+        <input type="text" [(ngModel)]="eventinfo.NameEvent" class="form-control form-control-sm" placeholder="Mi super evento.." />
       </div>
     </div>
     <div class="form-group row">
-      <label class="col-md-2 col-form-label">Empieza:</label>
+      <label class="col-md-1 col-form-label">Empieza:</label>
       <div class="col-md-4">
-        <input type="date" />
+        <input type="date" class="form-control form-control-sm" [(ngModel)]="eventinfo.StartDateTime" />
       </div>
-      <label class="col-md-2 col-form-label">Termina:</label>
+      <label class="col-md-1 col-form-label">Termina:</label>
       <div class="col-md-4">
-        <input type="date" />
+        <input type="date" class="form-control form-control-sm" [(ngModel)]="eventinfo.EndDateTime"/>
       </div>
     </div>
     <div class="form-group row">
-      <div class="col-md-5">
-        <img src="/assets/img/calendar.png" alt="">
+      <div class="col-md-3">
+        <div class="row">
+          <div class="col-md-12">
+            <img class="rounded-circle" src="/assets/img/calendar.png" width="200" alt="" />
+          </div>
+        </div>
+        <div class="row">
+
+        </div>
       </div>
-      <div class="col-md-7">
-          <simple-tiny
-          [elementId]="'my-editor-id'"
-          (onEditorKeyup)="keyupHandlerFunction($event)"
-          >
+      <div class="col-md-9">
+        <div class="form-group row">
+          <div class="col-md-6">
+            <label class="col-md-1 col-form-label">Dirección:</label>
+            <div class="col-md-12">
+              <input type="text" class="form-control form-control-sm" [(ngModel)]="eventinfo.Address"/>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <label class="col-md-7 col-form-label">Localización Mapa:</label>
+            <div class="col-md-12">
+              <input type="text" class="form-control form-control-sm" [(ngModel)]="eventinfo.Location"/>
+            </div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-md-12">
+            <input type="file" class="form-control form-control-sm" (change)="onChangePicture($event)"/>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group row">
+      <div class="col-md-12">
+        <simple-tiny [elementId]="'my-editor-id'" (onEditorKeyup)="keyupHandlerFunction($event)">
         </simple-tiny>
       </div>
     </div>
+    <div class="form-group row">
+        <div class="col-md-12">
+          <button class="btn btn-warning"  (click)="addNewEvent()">Publicar Evento</button>
+        </div>
+      </div>
   </div>
   <div class="col-md-3">
+
   </div>
 </div>
