@@ -4,7 +4,8 @@
     <div class="form-group row">
       <label for="staticEmail" class="col-md-3 col-form-label"> Nombre del evento :</label>
       <div class="col-md-8">
-        <input type="text" [(ngModel)]="eventinfo.NameEvent" class="form-control form-control-sm" placeholder="Mi super evento.." />
+        <input type="text" [(ngModel)]="eventinfo.NameEvent" class="form-control form-control-sm" placeholder="Mi super evento.."
+        />
       </div>
     </div>
     <div class="form-group row">
@@ -14,14 +15,15 @@
       </div>
       <label class="col-md-1 col-form-label">Termina:</label>
       <div class="col-md-4">
-        <input type="date" class="form-control form-control-sm" [(ngModel)]="eventinfo.EndDateTime"/>
+        <input type="date" class="form-control form-control-sm" [(ngModel)]="eventinfo.EndDateTime" />
       </div>
     </div>
     <div class="form-group row">
       <div class="col-md-3">
         <div class="row">
           <div class="col-md-12">
-            <img class="rounded-circle" src="/assets/img/calendar.png" width="200" alt="" />
+            <img class="rounded-circle" src="{{urlimgclient==''?'/assets/img/calendar.png':urlimgclient}}" width="200" height="200" alt=""
+            />
           </div>
         </div>
         <div class="row">
@@ -33,19 +35,27 @@
           <div class="col-md-6">
             <label class="col-md-1 col-form-label">Dirección:</label>
             <div class="col-md-12">
-              <input type="text" class="form-control form-control-sm" [(ngModel)]="eventinfo.Address"/>
+              <input type="text" class="form-control form-control-sm" [(ngModel)]="eventinfo.Address" />
             </div>
           </div>
           <div class="col-md-6">
             <label class="col-md-7 col-form-label">Localización Mapa:</label>
             <div class="col-md-12">
-              <input type="text" class="form-control form-control-sm" [(ngModel)]="eventinfo.Location"/>
+              <input type="text" class="form-control form-control-sm" [(ngModel)]="eventinfo.Location" />
+            </div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-md-6">
+            <label class="col-md-1 col-form-label">Ciudad:</label>
+            <div class="col-md-12">
+              <input type="text" class="form-control form-control-sm" [(ngModel)]="eventinfo.City" />
             </div>
           </div>
         </div>
         <div class="form-group row">
           <div class="col-md-12">
-            <input type="file" class="form-control form-control-sm" (change)="onChangePicture($event)"/>
+            <input type="file" class="form-control form-control-sm" (change)="detectFiles($event)" />
           </div>
         </div>
       </div>
@@ -57,12 +67,42 @@
       </div>
     </div>
     <div class="form-group row">
-        <div class="col-md-12">
-          <button class="btn btn-warning"  (click)="addNewEvent()">Publicar Evento</button>
-        </div>
+      <div class="col-md-12">
+        <button class="btn btn-warning" (click)="addNewEvent()">Publicar Evento</button>
       </div>
+    </div>
   </div>
   <div class="col-md-3">
+    <!-- <div class="row" *ngFor="let item of eventslist ">
+      <div class="card">
+        <a href="#">
+         <div class="card-header">
+            {{item.NameEvent}}
+          </div>
 
+          <div class="card-content">
+            <div class="row">
+              <div class="col-md-3">
+                <img class="img-responsive rounded-circle" src="{{item.PictureURL}}" width="50" height="50">
+              </div>
+              <div class="col-md-9">
+                <p class="card-title">Ciudad - {{item.City }}</p>
+              </div>
+            </div>
+          </div>
+        
+        </a>
+      </div>
+    </div>-->
+    <ul class="list-unstyled" *ngFor="let item of eventslist ">
+      <li class="media" [routerLink]="['/events', item.$key]">
+        <img class="d-flex mr-3 img-responsive rounded-circle" src="{{item.PictureURL}}" width="50" height="50">
+        <div class="media-body">
+          <h6 class="mt-0 mb-1">{{item.NameEvent}}</h6>
+          Ciudad - {{item.City }} <br>
+          Fecha - {{item.StartDateTime}}
+        </div>
+      </li>
+    </ul>
   </div>
 </div>

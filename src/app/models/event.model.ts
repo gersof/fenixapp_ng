@@ -5,6 +5,7 @@ export class EventModel {
         public EndDateTime:string,
         public Location: string,
         public Address:string,
+        public City:string,
         public PictureURL:string,
         public DescriptionEvent:string
     ){ 
