@@ -1,3 +1,9 @@
-<p>
-  eventdetail works!
-</p>
+<div class="row featurette" >
+    <div class="col-md-7 push-md-5">
+      <h2 class="featurette-heading">{{item.NameEvent}}</h2>
+      <p class="lead" [innerHTML]="item.DescriptionEvent"></p>
+    </div>
+    <div class="col-md-5 pull-md-7">
+      <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="500x500" src="{{item.PictureURL}}" data-holder-rendered="true" style="width: 500px; height: 500px;">
+    </div>
+  </div>

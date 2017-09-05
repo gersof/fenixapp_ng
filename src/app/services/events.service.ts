@@ -58,4 +58,10 @@ uploads: FirebaseListObservable<any[]>;
     this.events= this.db.list('/events/') as FirebaseListObservable<any[]>;
     return  this.events;
   }
+
+  getEventInfo(id)
+  {
+    return this.db.object('/events/'+id);
+   // return  this.events;
+  }
 }

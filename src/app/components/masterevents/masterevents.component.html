@@ -95,7 +95,7 @@
       </div>
     </div>-->
     <ul class="list-unstyled" *ngFor="let item of eventslist ">
-      <li class="media" [routerLink]="['/events', item.$key]">
+      <li class="media" [routerLink]="['/eventdetail', item.$key]">
         <img class="d-flex mr-3 img-responsive rounded-circle" src="{{item.PictureURL}}" width="50" height="50">
         <div class="media-body">
           <h6 class="mt-0 mb-1">{{item.NameEvent}}</h6>

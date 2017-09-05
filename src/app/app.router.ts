@@ -7,6 +7,7 @@ import { LocationsComponent } from './components/locations/locations.component';
 import { HomeComponent } from './components/home/home.component';
 import { MasternewsComponent } from './components/masternews/masternews.component';
 import { MastereventsComponent } from './components/masterevents/masterevents.component';
+import { EventdetailComponent } from "./components/eventdetail/eventdetail.component";
 
 
 const routes: Routes = [
@@ -27,6 +28,8 @@ const routes: Routes = [
     path: 'masternews',component: MasternewsComponent
   },{
     path: 'masterevents',component: MastereventsComponent
+  },{
+    path: 'eventdetail/:id',component: EventdetailComponent
   },
 ];
 
