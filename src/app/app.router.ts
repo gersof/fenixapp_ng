@@ -8,7 +8,7 @@ import { HomeComponent } from './components/home/home.component';
 import { MasternewsComponent } from './components/masternews/masternews.component';
 import { MastereventsComponent } from './components/masterevents/masterevents.component';
 import { EventdetailComponent } from "./components/eventdetail/eventdetail.component";
-
+import { MasterbandComponent } from "./components/masterband/masterband.component";
 
 const routes: Routes = [
   {
@@ -23,6 +23,8 @@ const routes: Routes = [
     path: 'events', component: EventsComponent
   },{
     path: 'locations',component: LocationsComponent
+  },{
+    path: 'masterbands',component: MasterbandComponent
   }
   ,{
     path: 'masternews',component: MasternewsComponent

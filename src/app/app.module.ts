@@ -22,6 +22,8 @@ import { MastereventsComponent } from './components/masterevents/masterevents.co
 import { SimpleTinyComponent } from "./common/editor";
 import { EventsService } from "./services/events.service";
 import { EventdetailComponent } from './components/eventdetail/eventdetail.component';
+import { BanddetailComponent } from './components/banddetail/banddetail.component';
+import { MasterbandComponent } from './components/masterband/masterband.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,9 @@ import { EventdetailComponent } from './components/eventdetail/eventdetail.compo
     MasternewsComponent,
     MastereventsComponent,
     SimpleTinyComponent,
-    EventdetailComponent
+    EventdetailComponent,
+    BanddetailComponent,
+    MasterbandComponent
   ],
   imports: [
     BrowserModule,
