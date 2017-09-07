@@ -24,6 +24,8 @@ import { EventsService } from "./services/events.service";
 import { EventdetailComponent } from './components/eventdetail/eventdetail.component';
 import { BanddetailComponent } from './components/banddetail/banddetail.component';
 import { MasterbandComponent } from './components/masterband/masterband.component';
+import { MyDatePickerModule } from 'mydatepicker';
+
 
 @NgModule({
   declarations: [
@@ -48,8 +50,8 @@ import { MasterbandComponent } from './components/masterband/masterband.componen
     AngularFireAuthModule,
     NgPipesModule,
     RoutingModule,
-    FormsModule
-    
+    FormsModule,
+    MyDatePickerModule     
     ],
   providers: [EventsService],
   bootstrap: [AppComponent]
