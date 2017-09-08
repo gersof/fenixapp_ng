@@ -32,10 +32,39 @@
           </div>
         </div>
       </div>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="form-group">
+            <label for="formGroupExampleInput">Fecha Inicio:</label>
+            <my-date-picker name="mydate" [options]="myDatePickerOptions" [(ngModel)]="model"></my-date-picker>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <label for="formGroupExampleInput">Fecha Fin</label>
+            <my-date-picker name="mydate" [options]="myDatePickerOptions" [(ngModel)]="model"></my-date-picker>
+          </div>
+        </div>
+        <div class="col-md-3 my-auto">
+
+          <div class="my-auto">
+            <label for="formGroupExampleInput"> <input type="checkbox"> Activa</label>
+          </div>
+
+        </div>
+      </div>
     </div>
     <div class="col-md-4">
-        <my-date-picker name="mydate" [options]="myDatePickerOptions"
-        [(ngModel)]="model" required></my-date-picker>
+
     </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6">
+      <simple-tiny [elementId]="'my-editor-id'" (onEditorKeyup)="keyupHandlerFunction($event)">
+        </simple-tiny>
+  </div>
+  <div class="col-md-6">
+
   </div>
 </div>
