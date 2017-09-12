@@ -1,4 +1,4 @@
-<div class="row">
+<!--<div class="row">
   <div class="col-md-2">
     <img class="border-2 rounded" src="assets/img/band_image1.png" width="150" height="150" />
   </div>
@@ -61,10 +61,83 @@
 </div>
 <div class="row">
   <div class="col-md-6">
-      <simple-tiny [elementId]="'my-editor-id'" (onEditorKeyup)="keyupHandlerFunction($event)">
-        </simple-tiny>
+    <simple-tiny [elementId]="'my-editor-id'" (onEditorKeyup)="keyupHandlerFunction($event)">
+    </simple-tiny>
   </div>
   <div class="col-md-6">
+    <div class="row">
+      <div class="col-md-4">
+          <div class="form-group ">
+              <label>Nombre Disco:</label>
+              <input type="text" class="form-control form-control-sm" [(ngModel)]="NameAlbum"/>        
+            </div>
+      </div>
+      <div class="col-md-4">
+          <div class="form-group ">
+              <label>Año Disco:</label>
+              <input type="number" class="form-control form-control-sm" [(ngModel)]="YearAlbum"/>        
+            </div>
+      </div>
+      <div class="col-md-4 my-auto">
+          <button class="btn btn-warning btn-sm" (click)="addAlbumInfoToList()">Agregar</button> 
+      </div>
+    </div>
+    <div class="row">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Disco</th>
+            <th>Año</th>
+            <th>
+            </th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr  *ngFor="let item of discography">
+            <td>{{item.NameAlbum}}</td>
+            <td>{{item.YearAlbum}}</td>
+            <td>
+              <button class="btn btn-danger btn-sm">Eliminar</button>
+            </td>
+            <td>
+              <button class="btn btn-default btn-sm">Editar</button>
+            </td>
+          </tr>
+        </tbody>
+
+      </table>
+    </div>
 
   </div>
-</div>
+</div>-->
+<form-wizard>
+    <wizard-step [title]="'Step1'" [isValid]="emailForm.form.valid" (onNext)="onStep1Next($event)">
+      <h1>Step1</h1>
+      <form #emailForm="ngForm">
+        <div class="form-group">
+          <label for="exampleInputEmail1">Email address</label>
+          <input type="email" class="form-control" id="exampleInputEmail1" name="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"
+            [(ngModel)]="data.email" required>
+          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        </div>
+      </form>
+    </wizard-step>
+    <wizard-step [title]="'Step2'" (onNext)="onStep2Next($event)">
+      <h1>Step2</h1>
+    </wizard-step>
+    <wizard-step [title]="'Step3'" (onNext)="onStep3Next($event)">
+      <h1>Step3</h1>
+    </wizard-step>
+    <wizard-step [title]="'Step4'" (onComplete)="onComplete($event)">
+      <div [ngSwitch]="isCompleted">
+        <div *ngSwitchDefault>
+          <h1>Step4</h1>
+        </div>
+        <div *ngSwitchCase="true">
+          <h4>Thank you! You have completed all the steps.</h4>
+        </div>
+      </div>
+    </wizard-step>
+  </form-wizard>

@@ -25,6 +25,7 @@ import { EventdetailComponent } from './components/eventdetail/eventdetail.compo
 import { BanddetailComponent } from './components/banddetail/banddetail.component';
 import { MasterbandComponent } from './components/masterband/masterband.component';
 import { MyDatePickerModule } from 'mydatepicker';
+import { FormWizardModule } from 'angular2-wizard';
 
 
 @NgModule({
@@ -51,7 +52,8 @@ import { MyDatePickerModule } from 'mydatepicker';
     NgPipesModule,
     RoutingModule,
     FormsModule,
-    MyDatePickerModule     
+    MyDatePickerModule,
+    FormWizardModule     
     ],
   providers: [EventsService],
   bootstrap: [AppComponent]
