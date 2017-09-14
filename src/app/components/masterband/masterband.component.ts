@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {IMyDpOptions} from 'mydatepicker';
+import { IMyDpOptions } from 'mydatepicker';
 
 @Component({
   selector: 'app-masterband',
@@ -10,13 +10,26 @@ export class MasterbandComponent implements OnInit {
   private myDatePickerOptions: IMyDpOptions = {
     // other options...
     dateFormat: 'yyyy-mm-dd',
-    todayBtnTxt:'Hoy'
-};
-private urlimgclient='';
-private NameAlbum:string='';
-private YearAlbum:number=2000;
-private discography: Array<any>=[];
-selectedFiles: FileList;
+    todayBtnTxt: 'Hoy'
+  };
+  private urlimgclient = '';
+  private NameAlbum: string = '';
+  private YearAlbum: number;
+  private NameIntegrant: string = ''
+  private Instrument: string = ''
+  private Status: boolean = false;
+  private discography: Array<any> = [];
+  private integrants: Array<any> = [];
+  private instruments: Array<any> = [
+    { 'IdInstrument': '1', 'NameInstrument': 'Voz' }
+    , { 'IdInstrument': '2', 'NameInstrument': 'Guitarra' }
+    , { 'IdInstrument': '3', 'NameInstrument': 'Bajo' }
+    , { 'IdInstrument': '4', 'NameInstrument': 'Batería' }
+    , { 'IdInstrument': '5', 'NameInstrument': 'Teclado' }
+    , { 'IdInstrument': '6', 'NameInstrument': 'Otros' }
+  ];
+
+  selectedFiles: FileList;
 
   constructor() { }
 
@@ -24,8 +37,13 @@ selectedFiles: FileList;
 
   }
 
-  addAlbumInfoToList(){
-    this.discography.push({NameAlbum:this.NameAlbum,YearAlbum:this.YearAlbum});
+  addAlbumInfoToList() {
+    this.discography.push({ NameAlbum: this.NameAlbum, YearAlbum: this.YearAlbum });
+  }
+
+  addIntegrantInfoToList() {
+
+    this.integrants.push({ NameIntegrant: this.NameIntegrant, Instrument: this.Instrument, Status: this.Status });
   }
   detectFiles(event) {
     this.selectedFiles = event.target.files;
@@ -46,7 +64,7 @@ selectedFiles: FileList;
     var reader = e.target;
     this.urlimgclient = reader.result;
   }
-  
+
   step2: any = {
     showNext: true,
     showPrev: true

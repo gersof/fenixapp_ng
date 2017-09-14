@@ -112,80 +112,176 @@
 
   </div>
 </div>-->
-<form-wizard>
-  <wizard-step [title]="'Paso #1'" (onNext)="onStep1Next($event)">
-    <h1 class="text-center">Foto de la banda</h1>
-    <div class="row">
-      <div class="col-md-3 d-block mx-auto">
-        <img class="border-2  rounded-top" src="{{urlimgclient==''?'/assets/img/band_image1.png':urlimgclient}}" width="250" height="250"
-        />
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-6 d-block mx-auto">
-        <input type="file" class="form-control form-control-sm" (change)="detectFiles($event)" />
-      </div>
-    </div>
-  </wizard-step>
-  <wizard-step [title]="'Paso #2'" (onNext)="onStep2Next($event)">
-    <h1 class="text-center">Información básica de la banda</h1>
-    <div class="row">
-      <div class="col-md-3">
-        <div class="form-group">
-          <label for="formGroupExampleInput">Nombre banda:</label>
-          <input type="text" class="form-control form-control-sm" placeholder="Super banda..">
+<div style="height: 600px;">
+  <form-wizard>
+    <wizard-step [title]="'Paso #1'" (onNext)="onStep1Next($event)">
+      <h1 class="text-center">Foto de la banda</h1>
+      <div class="row">
+        <div class="col-md-3 d-block mx-auto">
+          <img class="border-2  rounded-top" src="{{urlimgclient==''?'/assets/img/band_image1.png':urlimgclient}}" width="250" height="250"
+          />
         </div>
       </div>
-      <div class="col-md-3">
-        <div class="form-group">
-          <label for="formGroupExampleInput">Genero:</label>
-          <input type="text" class="form-control form-control-sm" placeholder="Ej Pesado">
+      <div class="row">
+        <div class="col-md-6 d-block mx-auto">
+          <input type="file" class="form-control form-control-sm" (change)="detectFiles($event)" />
         </div>
       </div>
-      <div class="col-md-3">
-        <div class="form-group">
-          <label for="formGroupExampleInput">País:</label>
-          <input type="text" class="form-control form-control-sm" placeholder="Ej Colombia">
+    </wizard-step>
+    <wizard-step [title]="'Paso #2'" (onNext)="onStep2Next($event)">
+      <h1 class="text-center">Información básica de la banda</h1>
+      <div class="row">
+        <div class="col-md-3">
+          <div class="form-group">
+            <label for="formGroupExampleInput">Nombre banda:</label>
+            <input type="text" class="form-control form-control-sm" placeholder="Super banda..">
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="form-group">
+            <label for="formGroupExampleInput">Genero:</label>
+            <input type="text" class="form-control form-control-sm" placeholder="Ej Pesado">
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="form-group">
+            <label for="formGroupExampleInput">País:</label>
+            <input type="text" class="form-control form-control-sm" placeholder="Ej Colombia">
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="form-group">
+            <label for="formGroupExampleInput">Ciudad:</label>
+            <input type="text" class="form-control form-control-sm" placeholder="Ej Medellin">
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="form-group">
+            <label for="formGroupExampleInput">Fecha Inicio:</label>
+            <my-date-picker name="mydate" [options]="myDatePickerOptions" [(ngModel)]="model"></my-date-picker>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="form-group">
+            <label for="formGroupExampleInput">Fecha Fin</label>
+            <my-date-picker name="mydate" [options]="myDatePickerOptions" [(ngModel)]="model"></my-date-picker>
+          </div>
+        </div>
+        <div class="col-md-3 my-auto">
+          <div class="my-auto">
+            <label for="formGroupExampleInput"> <input type="checkbox"> Activa</label>
+          </div>
         </div>
       </div>
-      <div class="col-md-3">
-        <div class="form-group">
-          <label for="formGroupExampleInput">Ciudad:</label>
-          <input type="text" class="form-control form-control-sm" placeholder="Ej Medellin">
-        </div>
-      </div>
-      <div class="col-md-3">
-        <div class="form-group">
-          <label for="formGroupExampleInput">Fecha Inicio:</label>
-          <my-date-picker name="mydate" [options]="myDatePickerOptions" [(ngModel)]="model"></my-date-picker>
-        </div>
-      </div>
-      <div class="col-md-3">
-        <div class="form-group">
-          <label for="formGroupExampleInput">Fecha Fin</label>
-          <my-date-picker name="mydate" [options]="myDatePickerOptions" [(ngModel)]="model"></my-date-picker>
-        </div>
-      </div>
-      <div class="col-md-3 my-auto">
-        <div class="my-auto">
-          <label for="formGroupExampleInput"> <input type="checkbox"> Activa</label>
-        </div>
-      </div>
-    </div>
 
 
-  </wizard-step>
-  <wizard-step [title]="'Step3'" (onNext)="onStep3Next($event)">
-    <h1>Step3</h1>
-  </wizard-step>
-  <wizard-step [title]="'Step4'" (onComplete)="onComplete($event)">
-    <div [ngSwitch]="isCompleted">
-      <div *ngSwitchDefault>
-        <h1>Step4</h1>
+    </wizard-step>
+    <wizard-step [title]="'Paso #3'" (onNext)="onStep3Next($event)">
+      <h1 class="text-center">Integrantes</h1>
+      <div class="row">
+        <div class="col-md-3">
+          <div class="form-group ">
+            <label>Nombre Integrante:</label>
+            <input type="text" class="form-control form-control-sm" [(ngModel)]="NameIntegrant" />
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="form-group ">
+            <label>Instrumento:</label>
+            <select class="form-control form-control-sm" [(ngModel)]="Instrument" >
+              <option value="">Elija una opción</option>     
+              <option *ngFor="let item of instruments" value="{{item.IdInstrument}}">{{item.NameInstrument}}</option>         
+            </select>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="form-group ">
+            <label>Estado:</label>
+            <br>
+            <label class="custom-control custom-radio">
+                  <input id="radio1" name="radio" type="checkbox" class="custom-control-input" [(ngModel)]="Status">
+                  <span class="custom-control-indicator"></span>
+                  <span class="custom-control-description">Activo</span>
+           </label>
+          </div>
+        </div>
+        <div class="col-md-3 my-auto">
+          <button class="btn btn-warning btn-sm" (click)="addIntegrantInfoToList()">Agregar</button>
+        </div>
       </div>
-      <div *ngSwitchCase="true">
-        <h4>Thank you! You have completed all the steps.</h4>
+      <div class="row">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Nombre Integrante</th>
+              <th>Instrumento</th>
+              <th>Estado </th>             
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of integrants">
+              <td>{{item.NameIntegrant}}</td>
+              <td>{{item.Instrument}}</td>
+              <td>{{item.Status}}</td>
+              <td>
+                <button class="btn btn-danger btn-sm">Eliminar</button>
+                <button class="btn btn-default btn-sm">Editar</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-    </div>
-  </wizard-step>
-</form-wizard>
+    </wizard-step>
+    <wizard-step [title]="'Paso #4'" (onComplete)="onComplete($event)">
+      <div [ngSwitch]="isCompleted">
+        <div *ngSwitchDefault>
+          <h1 class="text-center">Discografía</h1>
+          <div class="row">
+            <div class="col-md-4">
+              <div class="form-group ">
+                <label>Nombre Disco:</label>
+                <input type="text" class="form-control form-control-sm" [(ngModel)]="NameAlbum" />
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group ">
+                <label>Año Disco:</label>
+                <input type="number" class="form-control form-control-sm" [(ngModel)]="YearAlbum" />
+              </div>
+            </div>
+            <div class="col-md-4 my-auto">
+              <button class="btn btn-warning btn-sm" (click)="addAlbumInfoToList()">Agregar</button>
+            </div>
+          </div>
+          <div class="row">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Disco</th>
+                  <th>Año</th>
+                  <th>
+                  </th>
+                  <th></th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of discography">
+                  <td>{{item.NameAlbum}}</td>
+                  <td>{{item.YearAlbum}}</td>
+                  <td>
+                    <button class="btn btn-danger btn-sm">Eliminar</button>
+                    <button class="btn btn-default btn-sm">Editar</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div *ngSwitchCase="true">
+          <h4 class="text-center">Gracias! Ahora has registrado tu banda.</h4>
+        </div>
+      </div>
+    </wizard-step>
+  </form-wizard>
+</div>
