@@ -188,7 +188,7 @@
         <div class="col-md-3">
           <div class="form-group ">
             <label>Instrumento:</label>
-            <select class="form-control form-control-sm" [(ngModel)]="Instrument" >
+            <select class="form-control form-control-sm" [(ngModel)]="Instrument">
               <option value="">Elija una opción</option>     
               <option *ngFor="let item of instruments" value="{{item.IdInstrument}}">{{item.NameInstrument}}</option>         
             </select>
@@ -206,16 +206,19 @@
           </div>
         </div>
         <div class="col-md-3 my-auto">
-          <button class="btn btn-warning btn-sm" (click)="addIntegrantInfoToList()">Agregar</button>
+            <a class="btn btn-default" style="cursor: pointer;" aria-label="Settings" (click)="addIntegrantInfoToList()">
+                <i class="fa fa-plus fa-3x" style="color: #f0ad4e;" aria-hidden="true" ></i>
+            </a>
+          <!--<button class="btn btn-warning btn-sm" (click)="addIntegrantInfoToList()">Agregar</button>-->
         </div>
       </div>
       <div class="row">
-        <table class="table">
+        <table class="table table-bordered">
           <thead>
             <tr>
               <th>Nombre Integrante</th>
               <th>Instrumento</th>
-              <th>Estado </th>             
+              <th>Estado </th>
             </tr>
           </thead>
           <tbody>
@@ -224,8 +227,12 @@
               <td>{{item.Instrument}}</td>
               <td>{{item.Status}}</td>
               <td>
-                <button class="btn btn-danger btn-sm">Eliminar</button>
-                <button class="btn btn-default btn-sm">Editar</button>
+                <a class="btn btn-default" style="cursor: pointer;" aria-label="Settings">
+                    <i class="fa fa-trash fa-3x" style="color: brown;" aria-hidden="true" ></i>
+                </a>
+                <a class="btn btn-default" style="cursor: pointer;" aria-label="Settings">
+                    <i class="fa fa-edit fa-3x" style="color: black ;" aria-hidden="true"></i>
+                  </a>
               </td>
             </tr>
           </tbody>
@@ -235,6 +242,10 @@
     <wizard-step [title]="'Paso #4'" (onComplete)="onComplete($event)">
       <div [ngSwitch]="isCompleted">
         <div *ngSwitchDefault>
+          <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+    Launch demo modal
+  </button>
           <h1 class="text-center">Discografía</h1>
           <div class="row">
             <div class="col-md-4">
@@ -254,15 +265,13 @@
             </div>
           </div>
           <div class="row">
-            <table class="table">
+            <table class="table table-bordered">
               <thead>
                 <tr>
                   <th>Disco</th>
                   <th>Año</th>
                   <th>
                   </th>
-                  <th></th>
-                  <th></th>
                 </tr>
               </thead>
               <tbody>
@@ -270,8 +279,13 @@
                   <td>{{item.NameAlbum}}</td>
                   <td>{{item.YearAlbum}}</td>
                   <td>
-                    <button class="btn btn-danger btn-sm">Eliminar</button>
-                    <button class="btn btn-default btn-sm">Editar</button>
+                    <a class="btn btn-default" style="cursor: pointer;" aria-label="Settings">
+                          <i class="fa fa-trash fa-3x" style="color: brown;" aria-hidden="true" ></i>
+                      </a>
+                    <a class="btn btn-default" style="cursor: pointer;" aria-label="Settings">
+                          <i class="fa fa-edit fa-3x" style="color: #1976D2 ;" aria-hidden="true"></i>
+                        </a>
+
                   </td>
                 </tr>
               </tbody>
@@ -285,3 +299,23 @@
     </wizard-step>
   </form-wizard>
 </div>
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>

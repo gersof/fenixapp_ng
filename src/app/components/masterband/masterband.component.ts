@@ -29,6 +29,11 @@ export class MasterbandComponent implements OnInit {
     , { 'IdInstrument': '6', 'NameInstrument': 'Otros' }
   ];
 
+  private status: Array<any> = [
+    { 'IdStatus': true, 'NameStatus': 'Activo' }
+    , { 'IdStatus': false, 'NameStatus': 'Inactivo' }
+  ];
+
   selectedFiles: FileList;
 
   constructor() { }
@@ -38,7 +43,28 @@ export class MasterbandComponent implements OnInit {
   }
 
   addAlbumInfoToList() {
-    this.discography.push({ NameAlbum: this.NameAlbum, YearAlbum: this.YearAlbum });
+    var result = this.validateAlbumInfo();        
+    
+
+    if(result.Isvalid===true)
+      {
+        this.discography.push({ NameAlbum: this.NameAlbum, YearAlbum: this.YearAlbum });
+        
+      }else{
+        alert(result.Msg);
+      }
+  }
+
+  validateAlbumInfo() {
+    console.log(this.NameAlbum +"|"+this.YearAlbum)
+    var result = { Isvalid: false, Msg: '' };
+    if (this.NameAlbum == '' && (this.YearAlbum === 0 || this.YearAlbum === null)) {
+      result.Isvalid = false; result.Msg = "El nombre del Album y el año"
+    } else {
+      result.Isvalid = true; result.Msg = "OK"
+    }
+
+    return result;
   }
 
   addIntegrantInfoToList() {
