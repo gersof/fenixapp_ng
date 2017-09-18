@@ -7,7 +7,7 @@ import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { AngularFireModule } from 'angularfire2';
 import { firebaseConfig } from "../environments/firebase.config";
-import {NgPipesModule} from 'ngx-pipes';
+import { NgPipesModule } from 'ngx-pipes';
 import { RouterModule, Routes } from '@angular/router';
 import { RoutingModule } from "./app.router";
 // New imports to update based on AngularFire2 version 4
@@ -26,6 +26,8 @@ import { BanddetailComponent } from './components/banddetail/banddetail.componen
 import { MasterbandComponent } from './components/masterband/masterband.component';
 import { MyDatePickerModule } from 'mydatepicker';
 import { FormWizardModule } from 'angular2-wizard';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {ToasterModule, ToasterService} from 'angular2-toaster';
 
 
 @NgModule({
@@ -42,7 +44,8 @@ import { FormWizardModule } from 'angular2-wizard';
     SimpleTinyComponent,
     EventdetailComponent,
     BanddetailComponent,
-    MasterbandComponent
+    MasterbandComponent,
+   
   ],
   imports: [
     BrowserModule,
@@ -53,9 +56,10 @@ import { FormWizardModule } from 'angular2-wizard';
     RoutingModule,
     FormsModule,
     MyDatePickerModule,
-    FormWizardModule     
-    ],
-  providers: [EventsService],
+    FormWizardModule,
+    BrowserAnimationsModule, ToasterModule
+  ],
+  providers: [EventsService, ToasterService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

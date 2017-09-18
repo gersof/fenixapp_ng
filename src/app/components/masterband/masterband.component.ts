@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IMyDpOptions } from 'mydatepicker';
+import {ToasterContainerComponent, ToasterService, Toast} from 'angular2-toaster';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 @Component({
   selector: 'app-masterband',
@@ -36,12 +38,18 @@ export class MasterbandComponent implements OnInit {
 
   selectedFiles: FileList;
 
-  constructor() { }
+  private toasterService: ToasterService;
+  
+  constructor(toasterService: ToasterService) {
+      this.toasterService = toasterService;    
+  }
 
   ngOnInit() {
 
   }
-
+  popToast() {
+    this.toasterService.pop('success', 'Args Title', 'Args Body');
+}
   addAlbumInfoToList() {
     var result = this.validateAlbumInfo();        
     

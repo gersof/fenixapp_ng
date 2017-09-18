@@ -242,10 +242,8 @@
     <wizard-step [title]="'Paso #4'" (onComplete)="onComplete($event)">
       <div [ngSwitch]="isCompleted">
         <div *ngSwitchDefault>
-          <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-    Launch demo modal
-  </button>
+            <toaster-container></toaster-container>
+            <button (click)="popToast()">pop toast</button>`
           <h1 class="text-center">Discografía</h1>
           <div class="row">
             <div class="col-md-4">
